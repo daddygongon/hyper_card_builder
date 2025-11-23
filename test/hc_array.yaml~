@@ -1,0 +1,16 @@
+---
+:source_file: "./linux_basic.pdf"
+:target_dir: "./linux_basic"
+:toc:
+- :no:
+  :init: 1
+  :fin:
+  :head: title
+- :no: s1
+  :init: 2
+  :fin:
+  :head: command
+- :no: s1
+  :init: 7
+  :fin: 7
+  :head: line_edit

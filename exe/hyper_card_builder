@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require "hyper_card_builder"
+
+HyperCardBuilder::CLI.start(ARGV)

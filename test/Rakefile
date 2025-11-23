@@ -1,0 +1,96 @@
+# -*- coding: utf-8 -*-
+# pdf splitter for hyper card
+
+require "colorize"
+require 'command_line/global'
+require 'yaml'
+
+$yaml_source_file = ARGV[1] || 'hc_struct.yaml'
+
+task :default do
+  system "rake -T"
+end
+
+
+  # mk_split_pdfs
+desc "mk yaml from dir" #desc -> description
+task :mk_yaml do # any name on task_name
+  p t_dir = ARGV[1] || 'fine_part/p3_suffix'
+  toc = []
+  Dir.glob(File.join(t_dir, '*')).each do |file|
+    data = File.basename(file,'.pdf').split('_')
+    pages = data[1].split('-')
+    new_data = {no: data[0],
+                init: pages[0].to_i,
+                fin:  pages[1].to_i,
+                head: data[2..-1].join("_")}
+    toc << new_data
+  end
+  File.write('tmp.yaml',YAML.dump(toc))
+end
+
+desc "split pdf with yaml"
+task :split_pdf do 
+  p file = ARGV[1] || 'hc_array.yaml'
+  pp data = YAML.load(File.read(file))
+  source_file = data[:source_file]
+  target_dir = data[:target_dir]
+  FileUtils.mkdir_p target_dir unless Dir.exist? target_dir
+  data[:toc].each do |v|
+    init = v[:init]
+    p fin = v[:fin]
+    pages = if fin==nil
+              fin = init
+              "#{init}"
+            else
+              "#{init}-#{fin}"
+            end
+    o_file = [v[:no],v[:head],pages].compact.join('_')+".pdf"
+    target = File.join(target_dir,o_file)
+    p comm = "qpdf #{source_file} --pages . #{init}-#{fin} -- #{target}"
+    system(comm)
+  end
+  exit
+end
+
+desc "split pdf with yaml without pages"
+task :split_pdf_wo_pages do 
+  p file = ARGV[1] || 'hc_array.yaml'
+  pp data = YAML.load(File.read(file))
+  source_file = data[:source_file]
+  target_dir = data[:target_dir]
+  FileUtils.mkdir_p target_dir unless Dir.exist? target_dir
+  data[:toc].each do |v|
+    init = v[:init]
+    p fin = v[:fin]
+    pages = if fin==nil
+              fin = init
+              "#{init}"
+            else
+              "#{init}-#{fin}"
+            end
+    o_file = [v[:no],v[:head]].compact.join('_')+".pdf"
+    target = File.join(target_dir,o_file)
+    p comm = "qpdf #{source_file} --pages . #{init}-#{fin} -- #{target}"
+    system(comm)
+  end
+  exit
+end
+
+desc "puts sample hc_array.yaml" 
+task :puts_sample_yaml do 
+  # file
+  hc_array = {
+  source_file: './linux_basic.pdf',
+  target_dir: './linux_basic',
+  toc: [{no: nil, init: 1,  fin: nil,  head: 'title'},
+        {no: 's1',init: 2,  fin: nil, head: 'command'},
+        {no: 's1',init: 7, fin: 7, head: 'line_edit'},
+       ]
+  }
+  puts YAML.dump(hc_array)
+  t_file = 'hc_array.yaml'
+  File.write(t_file,YAML.dump(hc_array))
+  puts "Save yaml data in \'#{t_file}\'."
+  exit
+end
