@@ -22,7 +22,7 @@ TODO: Write usage instructions here
 
 ** Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/daddygongon/hyper_card_builder. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [[https://github.com/\[USERNAME\]/hyper_card_builder/blob/main/CODE_OF_CONDUCT.md][MIT License]].
+Bug reports and pull requests are welcome on GitHub at https://github.com/daddygongon/hyper_card_builder. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [[https://github.com/daddygongon/hyper_card_builder/blob/main/CODE_OF_CONDUCT.md][MIT License]].
 
 ** License
 
