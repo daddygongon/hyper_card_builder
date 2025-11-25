@@ -21,12 +21,12 @@ class TestHcArrayYaml < Minitest::Test
   }
 
   def before_all
-    FileUtils.rm_rf(TEST_ENV_DIR)
+#    FileUtils.rm_rf(TEST_ENV_DIR)
     FileUtils.mkdir_p(TEST_ENV_DIR)
   end
 
   def after_all
-    FileUtils.rm_rf(TEST_ENV_DIR)
+#    FileUtils.rm_rf(TEST_ENV_DIR)
   end
 
   def test_puts_hc_array_outputs_expected_yaml

@@ -6,11 +6,11 @@
   :init: 1
   :fin:
   :head: title
-- :no: s1
+- :no: s0
   :init: 2
   :fin:
-  :head: command
-- :no: s1
-  :init: 7
-  :fin: 7
-  :head: line_edit
+  :head: commands
+- :no: sf
+  :init: 8
+  :fin: 8
+  :head: summary
