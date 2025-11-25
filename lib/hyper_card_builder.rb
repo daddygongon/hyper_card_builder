@@ -55,7 +55,7 @@ module HyperCardBuilder
       end
     end
 
-    desc "split without pages [YAML_FILE]", "Split PDF wo pages according to YAML_FILE (default: hc_array.yaml) and save to target_dir"
+    desc "split_wo_pages [YAML_FILE]", "Split PDF wo pages according to YAML_FILE (default: hc_array.yaml) and save to target_dir"
     def split_wo_pages(yaml_file = "hc_array.yaml")
       require "fileutils"
       require "yaml"
