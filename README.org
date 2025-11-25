@@ -1,0 +1,33 @@
+* HyperCardBuilder
+
+Hyper Card Building CLA
+
+** Installation
+
+Install the gem and add to the application's Gemfile by executing:
+
+```bash
+bundle add hyper_card_builder
+```
+
+If bundler is not being used to manage dependencies, install the gem by executing:
+
+```bash
+gem install hyper_card_builder
+```
+
+** Usage
+
+TODO: Write usage instructions here
+
+** Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/daddygongon/hyper_card_builder. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [[https://github.com/\[USERNAME\]/hyper_card_builder/blob/main/CODE_OF_CONDUCT.md][MIT License]].
+
+** License
+
+The gem is available as open source under the terms of the [[https://opensource.org/licenses/MIT][MIT License]].
+
+** Code of Conduct
+
+Everyone interacting in the HyperCardBuilder project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [[https://github.com/daddygongon/hyper_card_builder/blob/main/CODE_OF_CONDUCT.md][Code of Conduct]].
